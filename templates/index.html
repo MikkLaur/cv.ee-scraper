@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get yourself a job!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 1080px;
+        padding-top: 10px;
+      }
+      table {
+          font-family: Mono, arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 6px;
+      }
+
+      tr:nth-child(even) {
+          background-color: #fcfcfc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <tr>
+          <th></th>
+          <th>Company<br></th>
+          <th>Position</th>
+          <th>Location</th>
+          <th>End Date<br></th>
+        </tr>
+        {% for ad in adverts %}
+        <tr>
+          <td>
+            <a href="{{ad[c.url]}}"><img alt="Link to opening" src="{{ad[c.logo_url]}}"></a>
+          </td>
+          <td>{{ad[c.company]}}</td>
+          <td>{{ad[c.job_title]}}</td>
+          <td>{{ad[c.location]}}</td>
+          <td>{{ad[c.end_date]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
