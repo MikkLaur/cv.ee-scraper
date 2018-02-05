@@ -1,3 +1,5 @@
+# !/usr/bin/env python3
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
@@ -6,9 +8,8 @@ from persistence import save
 from time_conversion import convert_post_date_to_sortable_format
 
 
-page_url = 'https://www.cv.ee/toopakkumised/infotehnoloogia?sort=inserted&dir=desc'
-page = urlopen(page_url)
-soup = BeautifulSoup(page, 'html.parser')
+URL = 'https://www.cv.ee/toopakkumised/infotehnoloogia?sort=inserted&dir=desc'
+soup = BeautifulSoup(urlopen(URL), 'html.parser')
 
 found_adverts = []
 

@@ -1,11 +1,11 @@
 import os
 import sqlite3
-from time import strptime, strftime, localtime
+from time import strftime, localtime
 from sys import exit
 
 
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(DIRECTORY, 'scrapesqlite.db')
+DB_PATH = os.path.join(DIRECTORY, '.scrapes.db')
 
 
 class Columns:
@@ -81,10 +81,10 @@ def load():
     conn.close()
 
 
-def main():
+def setup():
   conn = create_connection()
   if conn == None:
-    log_error('main', 'No connection to database. Exiting.')
+    log_error('setup', 'No connection to database. Exiting.')
     exit(1)
 
   try:
@@ -105,7 +105,7 @@ def main():
 
   except sqlite3.Error as e:
     print('Table creation failed!')
-    log_error('main', e)
+    log_error('setup', e)
 
   finally:
     conn.commit()
@@ -113,5 +113,5 @@ def main():
 
 
 if __name__ == '__main__':
-  main()
+  setup()
 

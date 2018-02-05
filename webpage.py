@@ -1,9 +1,9 @@
-from flask import Flask, render_template
-import pickle
 import time
-
+from flask import Flask, render_template
 from persistence import load, Columns
+
 app = Flask(__name__)
+
 
 @app.route("/")
 def index():
