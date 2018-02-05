@@ -25,4 +25,4 @@ makes the scraping script run every hour.
 --------------
 --------------
 
-![Preview](https://i.imgur.com/zcpwCDs.png)
+![Preview](https://i.imgur.com/bXIl8D4.png)
