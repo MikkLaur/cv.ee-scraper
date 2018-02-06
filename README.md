@@ -8,7 +8,7 @@ Have the Flask framework and BeautifulSoup4 installed (```$ pip3 install flask``
 Run ```$ python3 setup.py```.
 This creates a Sqlite database with a table to store scraped data, and then runs ```scraper.py``` to collect the first batch of data.
 
-Now the webserver is ready to be run: ```$ python3 webpage.py```
+Now the webserver is ready to be run: ```$ python3 webserver.py```
 
 The site is viewable from ```http://localhost:5550```. If the ```port 5550``` is open, it will also be publicly available.
 
