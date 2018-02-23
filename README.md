@@ -19,7 +19,11 @@ Running ```$ crontab -e``` and adding the following line to the editor:
 
 ```@hourly python3 /your/path/to/cv.ee-scraper/scraper.py```
 
-makes the scraping script run every hour.
+makes the scraping script run every hour,
+
+```@daily python3 /your/path/to/cv.ee-scraper/cleaner.py```
+
+makes the cleaning script run every day, which deletes expired adverts from the database.
 
 --------------
 --------------

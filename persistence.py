@@ -80,7 +80,31 @@ def load():
     conn.commit()
     conn.close()
 
+def delete_expired_entries():
+  deletion_statement = '''
+    DELETE FROM adverts
+    WHERE end_date < (?)
+  '''
+  date_now = strftime("%Y-%m-%d", localtime())
 
+  conn = create_connection()
+  if conn == None:
+    log_error('delete_expired_entries', 'No connection to database.')
+    return
+
+  try:
+    c = conn.cursor()
+    c.execute(deletion_statement, (date_now, ))
+
+  except sqlite3.Error as e:
+    print('Failed to delete expired entries!')
+    log_error('delete_expired_entries', e)
+
+  finally:
+    conn.commit()
+    conn.close()
+
+# Main Function
 def setup():
   conn = create_connection()
   if conn == None:

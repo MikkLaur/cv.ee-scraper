@@ -21,3 +21,11 @@ def convert_post_date_to_sortable_format(time):
 
   # YYYY-MM-DD-hh-mm
   return time[2] +"-"+ time[1] +"-"+ time[0] +"-"+ time[3]
+
+def convert_end_date_to_sortable_format(time):
+  #dd.mm.YYYY
+  time = time.split(".")
+  time.reverse()
+
+  #YYYY-mm-dd
+  return "-".join(time)

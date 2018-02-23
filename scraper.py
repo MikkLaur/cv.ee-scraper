@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import re
 
 from persistence import save
-from time_conversion import convert_post_date_to_sortable_format
+from time_conversion import convert_post_date_to_sortable_format, convert_end_date_to_sortable_format
 
 
 URL = 'https://www.cv.ee/toopakkumised/infotehnoloogia?sort=inserted&dir=desc'
@@ -39,7 +39,7 @@ for advert in soup.findAll('div', {'itemtype': 'http://schema.org/JobPosting'}):
   end_date = re.search('\d\d.\d\d.\d\d\d\d', dates_block.text).group()
 
   post_date = convert_post_date_to_sortable_format(post_date)
-
+  end_date = convert_end_date_to_sortable_format(end_date)
 
   found_adverts += [(company, job_title, location, url, logo_url, post_date, end_date)]
 
